@@ -1,0 +1,13 @@
+server {
+    listen       80;
+    server_name  localhost;
+
+    location /.well-known {
+        default_type text/plain;
+        alias /well-known;
+    }
+
+    location / {
+        return 301 ${REDIRECT_URL}$request_uri;
+    }
+}
