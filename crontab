@@ -1,0 +1,2 @@
+# m  h    dom  mon  dow   commmand
+  0  */6  *    *    *     /app/cert_renew.py > /proc/1/fd/1 2> /proc/2/fd/2

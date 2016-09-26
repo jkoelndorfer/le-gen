@@ -4,7 +4,7 @@ server {
 
     location /.well-known {
         default_type text/plain;
-        alias /well-known;
+        alias /var/www/.well-known;
     }
 
     location / {
