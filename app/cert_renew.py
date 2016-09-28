@@ -6,6 +6,8 @@ import sys
 
 import yaml
 
+# simp_le exits with a non-zero code when it runs successfully, but performs no renewals
+rc_no_renewal = 1
 cert_root_dir = '/certs'
 
 config = None
@@ -38,6 +40,7 @@ for cert_dir in config['certs']:
         command.extend(['-d', domain])
     try:
         subprocess.check_call(command)
-    except subprocess.CalledProcessError:
-        print >> sys.stderr, 'Failed while trying to generate certs for {}'\
-                            .format(', ')
+    except subprocess.CalledProcessError as e:
+        if e.returncode != rc_no_renewal:
+            print >> sys.stderr, 'Failed while trying to generate certs for {}'\
+                                .format(', '.join(domains))
