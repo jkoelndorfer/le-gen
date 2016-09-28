@@ -32,7 +32,7 @@ for cert_dir in config['certs']:
         os.chdir(target_dir)
     except:
         # We can't change into the target directory... uh oh.
-        print >> sys.stderr, 'Could not access directory {} to generate certs for {}'\
+        print >> sys.stderr, 'Could not access directory {} to generate cert for {}'\
                              .format(target_dir, ', '.join(domains))
         continue
     command = list(base_command)
@@ -42,5 +42,5 @@ for cert_dir in config['certs']:
         subprocess.check_call(command)
     except subprocess.CalledProcessError as e:
         if e.returncode != rc_no_renewal:
-            print >> sys.stderr, 'Failed while trying to generate certs for {}'\
+            print >> sys.stderr, 'Failed while trying to generate cert for {}'\
                                 .format(', '.join(domains))
