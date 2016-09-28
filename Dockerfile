@@ -16,11 +16,11 @@ RUN apt-get -y update && \
 
 RUN rm -rf /var/lib/apt/lists/*
 
-COPY cert_renew.py /app/cert_renew.py
-COPY crontab /app/crontab
-COPY default.conf.template /app/default.conf.template
-COPY entrypoint.sh /entrypoint.sh
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY app/cert_renew.py /app/cert_renew.py
+COPY app/crontab /app/crontab
+COPY app/default.conf.template /app/default.conf.template
+COPY app/entrypoint.sh /entrypoint.sh
+COPY app/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN crontab /app/crontab
 
