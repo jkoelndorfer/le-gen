@@ -6,6 +6,8 @@ import sys
 
 import yaml
 
+os.umask(0077)
+
 # simp_le exits with a non-zero code when it runs successfully, but performs no renewals
 rc_no_renewal = 1
 cert_root_dir = '/certs'
