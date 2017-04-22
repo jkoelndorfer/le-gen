@@ -4,7 +4,7 @@ MAINTAINER John Koelndorfer "jkoelndorfer@gmail.com"
 
 # supervisor, simp_le, cron installation
 RUN apt-get -y update && \
-    apt-get -y --no-install-recommends --no-install-suggests install cron git python-yaml supervisor vim && \
+    apt-get -y --no-install-recommends --no-install-suggests install ca-certificates cron git python-yaml supervisor vim && \
     rm -rf /etc/cron{tab,.{d,daily,hourly,weekly,monthly}} && \
     mkdir -p /var/www && \
     git clone https://github.com/zenhack/simp_le.git /opt/simp_le && \
