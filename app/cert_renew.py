@@ -6,7 +6,7 @@ import sys
 
 import yaml
 
-os.umask(0077)
+os.umask(0022)
 
 # simp_le exits with a non-zero code when it runs successfully, but performs no renewals
 rc_no_renewal = 1
